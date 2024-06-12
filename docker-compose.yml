@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: super-secret-pass
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./populateDocker.sql:/docker-entrypoint-initdb.d/populateDocker.sql
+    
+ 
+volumes:
+  pgdata:

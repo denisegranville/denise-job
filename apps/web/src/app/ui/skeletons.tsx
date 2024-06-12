@@ -1,0 +1,7 @@
+
+
+const LoadingSkeleton = () => (
+  <div>
+  </div>
+);
+
